@@ -66,7 +66,7 @@ const sessionOptions ={
         httpOnly:true,
     },
 };
-console.log("MongoDB Connection URL:", process.env.ATLASDATABASE_URL);
+// console.log("MongoDB Connection URL:", process.env.ATLASDATABASE_URL);
 
 // app.get("/",(req,res)=>{
 //     res.send("Hi,I am root");
