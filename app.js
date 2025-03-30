@@ -18,7 +18,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy=require("passport-local");
 const User = require("./models/user.js");
-
+const Listing = require("./models/listing.js");
 
 const userRouter = require("./routes/user.js");
 
@@ -106,6 +106,17 @@ app.use((req,res,next)=>{
 //   let registerUser= await User.register(fakeUser,"helloworld");
 //   res.send(registerUser);
 // });
+
+// Root Route: Home Page pe listings dikhane ke liye
+app.get("/", async (req, res) => {
+    try {
+        const allListings = await Listing.find({});
+        res.render("listings/index.ejs", { allListings });
+    } catch (err) {
+        req.flash("error", "Unable to load listings.");
+        res.redirect("/listings");
+    }
+});
 
 
 app.use("/listings",listingRouter);
