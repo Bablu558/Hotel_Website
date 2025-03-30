@@ -66,6 +66,7 @@ const sessionOptions ={
         httpOnly:true,
     },
 };
+console.log("MongoDB Connection URL:", process.env.ATLASDATABASE_URL);
 
 // app.get("/",(req,res)=>{
 //     res.send("Hi,I am root");
@@ -107,7 +108,7 @@ app.use((req,res,next)=>{
 // });
 
 
-app.use("/listings",listingRouter);
+app.use("/",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/",userRouter);
 
