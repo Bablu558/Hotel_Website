@@ -107,17 +107,6 @@ app.use((req,res,next)=>{
 //   res.send(registerUser);
 // });
 
-// Root Route: Home Page pe listings dikhane ke liye
-app.get("/", async (req, res) => {
-    try {
-        const allListings = await Listing.find({});
-        res.render("listings/index.ejs", { allListings });
-    } catch (err) {
-        req.flash("error", "Unable to load listings.");
-        res.redirect("/listings");
-    }
-});
-
 
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
