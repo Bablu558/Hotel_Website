@@ -23,7 +23,7 @@ const Listing = require("./models/listing.js");
 const userRouter = require("./routes/user.js");
 
 
-// const MONGO_URL='mongodb://127.0.0.1:27017/wanderlust';
+// const MONGO_URL='mongodb://127.0.0.1:27017/wanderlust'; 
 const dburl=process.env.ATLASDATABASE_URL;
 main().then(()=>{
     console.log("connected to db");
@@ -66,12 +66,6 @@ const sessionOptions ={
         httpOnly:true,
     },
 };
-// console.log("MongoDB Connection URL:", process.env.ATLASDATABASE_URL);
-
-// app.get("/",(req,res)=>{
-//     res.send("Hi,I am root");
-    
-//     });
 app.get('/rooms', (req, res) => {
     res.render('room');
   });
